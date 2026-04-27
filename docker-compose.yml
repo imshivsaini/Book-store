@@ -1,0 +1,17 @@
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: book_store
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: book_store
+    ports:
+      - "5433:5432"
+    volumes:
+      - myapp_postgres_data:/var/lib/postgresql/data
+volumes:
+  myapp_postgres_data:
+    name: myapp_postgres_data
